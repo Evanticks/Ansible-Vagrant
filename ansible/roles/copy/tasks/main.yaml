@@ -1,0 +1,10 @@
+- name: Copiando al etc/network/interfaces
+  ansible.builtin.copy:
+    src: interfaz_nodo1/interfaces
+    dest: /etc/network/
+    owner: root
+    group: root
+    mode: u-rw,g-wx,o-rwx
+  notify:
+    - reiniciando maquina
+

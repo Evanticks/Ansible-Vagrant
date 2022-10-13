@@ -1,0 +1,8 @@
+- name: Ensure system is updated
+  apt: update_cache=yes upgrade=yes
+
+- name: Set authorized key took from file
+  authorized_key:
+    user: vagrant
+    state: present
+    key: "{{ lookup('file', '/home/antonio/.ssh/id_rsa.pub') }}"
